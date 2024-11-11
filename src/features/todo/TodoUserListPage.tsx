@@ -14,7 +14,8 @@ const TodoUserListPage = () => {
   const [toDoText, setToDoText] = useState("");
 
   const setOnToDoInputChangeListener = (e: ChangeEvent<HTMLInputElement>) => {
-    setToDoText(e.target.value);
+    const value = e.target.value;
+    setToDoText(value.length > 20 ? value.slice(0, 20) : value);
   };
 
   const setOnEnterListener = (e: React.KeyboardEvent<HTMLInputElement>) => {
