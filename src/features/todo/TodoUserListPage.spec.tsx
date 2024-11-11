@@ -44,6 +44,15 @@ describe("TodoUserListPage", () => {
     expect(checkImg).toBeInTheDocument();
   });
 
+  test("input 글자가 20자를 넘지 않는지 확인", () => {
+    const input = screen.getByPlaceholderText("할 일을 입력해 주세요");
+
+    const longText = "이것은 20자를 초과하는 긴 문자열입니다.";
+    fireEvent.change(input, { target: { value: longText } });
+
+    expect(input).toHaveValue(longText.slice(0, 20));
+  });
+
   test("할 일 최대 10개 추가", () => {
     jest.spyOn(window, "alert").mockImplementation(() => {});
 
