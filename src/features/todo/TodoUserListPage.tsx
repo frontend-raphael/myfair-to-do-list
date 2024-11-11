@@ -50,6 +50,7 @@ const TodoUserListPage = () => {
           onChange={setOnToDoInputChangeListener}
           onKeyUp={setOnEnterListener}
           placeholder="할 일을 입력해 주세요"
+          maxLength={20}
         />
         <StyledToDoUserListPageContent>
           <TabContainer />
